@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AppService } from './app.service';
+import { DelilahUserService } from './delilah-user.service';
 
-describe('AppService', () => {
-  let service: AppService;
+describe('UserService', () => {
+  let service: DelilahUserService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AppService);
+    service = TestBed.inject(DelilahUserService);
   });
 
   it('should be created', () => {

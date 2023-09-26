@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AppService } from '../app.service';
-import { Router, RouterLink } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +14,6 @@ export class HomeComponent {
 
   public login() {
 
-    window.location.href = "https://discord.com/api/oauth2/authorize?client_id=974717104223825920&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Flogin&response_type=code&scope=identify";
+    window.location.href = environment.delilah.discord.oauth2Url;
   }
 }
