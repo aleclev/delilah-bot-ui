@@ -1,0 +1,24 @@
+<h2>Dictionary Management</h2>
+
+<div>
+    <h3>Add entry:</h3>
+    <input type="text" #newWord value="Word">
+    <div>
+        <textarea #newDefinition rows="4" cols="50">Enter Definition</textarea>
+    </div>
+    <button (click)="this.addEntry(newWord.value, newDefinition.value)">Add</button>    
+</div>
+
+<div>
+    <h3>Edit/Search Current Entries:</h3>
+    <h4>Search:</h4>
+    <input type="text" (input)="updateFilteredEntries(searchQuery.value)" #searchQuery>
+
+    <h4>Entries:</h4>
+    <div *ngFor="let entry of filteredEntries;">
+        <strong><em>{{entry.word.word}}</em></strong>
+        <p>{{entry.definition.definition}}</p>
+        <button (click)="this.deleteEntry(entry)">Delete</button>
+        <p>
+    </div>
+</div>
