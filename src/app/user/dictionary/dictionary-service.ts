@@ -28,7 +28,7 @@ export class DictionaryService {
     this.httpClient.post(environment.delilah.server.url + '/dictionary/entry',
     {
       word: entry.word.word,
-      definition: entry.word.word
+      definition: entry.definition.definition
     },
     {
       headers: {
