@@ -13,6 +13,7 @@ export class DelilahUserService {
   constructor(private http_client: HttpClient) { }
 
   public getCurrentDelilahUserInfo(): Observable<DelilahUser> {
-    return this.http_client.get<DelilahUser>(environment.delilah.server.url + '/user/@me', {headers: {'access_token': Cookie.get("access_token") }});
+    return this.http_client.get<DelilahUser>(environment.delilah.server.url + '/user/@me', 
+    {headers: {'access_token': Cookie.get("access_token") }});
   }
 }

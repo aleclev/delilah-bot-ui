@@ -3,6 +3,7 @@ import { Cookie } from 'ng2-cookies';
 import { DictionaryEntry } from 'src/app/models/delilah/dictionary-entry';
 import { DictionaryService } from './dictionary-service';
 import { Dictionary } from 'src/app/models/delilah/dictionary';
+import { DelilahUserService } from '../delilah-user.service';
 
 @Component({
   selector: 'app-dictionary',
@@ -11,16 +12,18 @@ import { Dictionary } from 'src/app/models/delilah/dictionary';
 })
 export class DictionaryComponent {
 
-  @Input()
-  dictionary!: Dictionary;
+  private dictionary!: Dictionary;
 
   public filteredEntries!: Array<DictionaryEntry>;
 
-  constructor(private dictionaryService: DictionaryService) {
-  }
+  constructor(private dictionaryService: DictionaryService, private delilahUserService: DelilahUserService) {}
 
   ngOnInit() {
-    this.filteredEntries = this.dictionary.entries;
+    this.delilahUserService.getCurrentDelilahUserInfo()
+    .subscribe(r => {
+        this.dictionary = r.rootDictionary;
+        this.filteredEntries = this.dictionary.entries;
+      });
   }
 
   public getDictionaryEntries(): Array<DictionaryEntry> {

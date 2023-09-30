@@ -2,4 +2,9 @@
 
 <button (click)="logout()">Logout</button>
 
-<app-dictionary [dictionary]="this.delilahUser.rootDictionary"></app-dictionary>
+<ul>
+    <li><a [routerLink]="['dictionary']">Dictionary</a></li>
+    <li><a [routerLink]="['groupEvent']">Create LFG Post</a></li>
+</ul>
+
+<router-outlet></router-outlet>

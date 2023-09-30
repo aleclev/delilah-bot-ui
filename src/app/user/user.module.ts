@@ -2,15 +2,26 @@ import { NgModule, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
 import { DictionaryComponent } from './dictionary/dictionary.component';
-import { DiscordUser } from '../models/discord/discord-user';
 import { DiscordUserService } from './discord-user.service';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateGroupEventComponent } from './groupEvent/create-group-event/create-group-event.component';
 
 const routes: Routes = [
+  
   {
     path:'',
-    component: UserComponent
+    component: UserComponent,
+    children: [
+      {
+        path: 'dictionary',
+        component: DictionaryComponent
+      },
+      {
+        path: 'groupEvent',
+        component: CreateGroupEventComponent
+      }
+    ]
   }
 ]
 
@@ -18,7 +29,8 @@ const routes: Routes = [
   declarations: [
     UserComponent,
     DictionaryComponent,
-    LoginComponent
+    LoginComponent,
+    CreateGroupEventComponent
   ],
   imports: [
     CommonModule,
