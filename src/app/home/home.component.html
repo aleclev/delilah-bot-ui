@@ -1,8 +1,18 @@
-<h1>Welcome to the Delilah Dashboard</h1>
-<h2>You can use this website to do the following:</h2>
-<ul>
-  <li>Manage your dictionary words</li>
-</ul>
+<div class="content">
+  <h1 #homeTitle id="home-title"></h1>
+  <div #mainBlock class="main-block">
+    <p #progressBar class="progress-bar"></p>
 
-<h3>Please log in with Discord to access this website to proceed</h3>
-<button mat-button color="primary" (click)="login()">Discord Login</button>
+    <div *ngIf="isLoggedIn()">
+      <p>welcome back {{discordUser.username}}!</p>
+    </div>
+    <div *ngIf="!isLoggedIn()">
+      <p>Please log in with Discord to continue</p>
+      <button mat-raised-button color="accent" (click)="login()">Login (Discord)</button>
+    </div>
+
+  </div>
+</div>
+
+
+

@@ -3,12 +3,13 @@ import { Cookie } from 'ng2-cookies';
 import { DictionaryEntry } from 'src/app/models/delilah/dictionary-entry';
 import { DictionaryService } from './dictionary-service';
 import { Dictionary } from 'src/app/models/delilah/dictionary';
-import { DelilahUserService } from '../delilah-user.service';
+import { DelilahUserService } from '../delilahUser/delilah-user.service';
+import { DelilahUser } from 'src/app/models/delilah/delilah-user';
 
 @Component({
   selector: 'app-dictionary',
   templateUrl: './dictionary.component.html',
-  styleUrls: ['./dictionary.component.css']
+  styleUrls: ['./dictionary.component.scss']
 })
 export class DictionaryComponent {
 
@@ -19,11 +20,13 @@ export class DictionaryComponent {
   constructor(private dictionaryService: DictionaryService, private delilahUserService: DelilahUserService) {}
 
   ngOnInit() {
-    this.delilahUserService.getCurrentDelilahUserInfo()
-    .subscribe(r => {
-        this.dictionary = r.rootDictionary;
-        this.filteredEntries = this.dictionary.entries;
-      });
+    let user: DelilahUser = this.delilahUserService.getDelilahUser();
+    this.dictionary = user.rootDictionary;
+    this.filteredEntries = this.dictionary.entries;
+  }
+
+  public showAddEntryButton(word: string, definition: string): boolean {
+    return word.length > 0 && definition.length > 0;
   }
 
   public getDictionaryEntries(): Array<DictionaryEntry> {

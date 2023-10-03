@@ -2,10 +2,16 @@ import { NgModule, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user.component';
 import { DictionaryComponent } from './dictionary/dictionary.component';
-import { DiscordUserService } from './discord-user.service';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from '../auth/login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateGroupEventComponent } from './groupEvent/create-group-event/create-group-event.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion'
+import { MatSelectModule } from '@angular/material/select';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 const routes: Routes = [
   
@@ -34,7 +40,14 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatExpansionModule,
+    MatSelectModule,
+    MatSnackBarModule
   ],
   bootstrap: [
     UserComponent
@@ -42,11 +55,5 @@ const routes: Routes = [
 })
 export class UserModule { 
   
-  constructor(private discordUserService: DiscordUserService) {}
-
-  ngOnInit() {
-    this.discordUserService.getObservableDiscordUser().subscribe(res => {
-      
-    })
-  }
+  constructor() {}
 }

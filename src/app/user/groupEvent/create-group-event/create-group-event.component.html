@@ -1,1 +1,42 @@
-<p>lfg create works</p>
+
+<div class="content">
+    <div>
+        <mat-form-field>
+            <mat-label>Activity</mat-label>
+            <mat-select [(value)]="activity">
+                <div *ngFor="let activity of activities">
+                    <mat-option value="{{activity.shortName}}">{{activity.longName}}</mat-option>
+                </div>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <mat-form-field>
+            <mat-label>Group Size</mat-label>
+            <input matInput type="number" placeholder="Group size" #groupSize>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput #description rows="4" cols="50" placeholder="Definition"></textarea>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <mat-form-field>
+            <mat-label>Start time (optional)</mat-label>
+            <input matInput type="datetime-local" placeholder="start date" #startTime>
+        </mat-form-field>
+    </div>
+    
+    
+    <button color="accent" mat-raised-button #createButton [disabled]="!enableCreateButton() || groupCreated" (click)="createGroup()">Create Group</button>
+    
+    <div *ngIf="groupCreated">
+        <p>Post URL:</p>
+        <a href="{{discordPostUrl}}">{{discordPostUrl}}</a>
+    </div>
+</div>

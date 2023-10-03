@@ -1,9 +1,9 @@
 import { Component, Output } from '@angular/core';
-import { DelilahUserService } from './delilah-user.service';
+import { DelilahUserService } from './delilahUser/delilah-user.service';
 import { DiscordUser } from '../models/discord/discord-user';
-import { DiscordUserService } from './discord-user.service';
 import { DelilahUser } from '../models/delilah/delilah-user';
-import { AuthService } from './auth.service';
+import { DiscordUserService } from './discordUser/discord-user.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-user',
@@ -16,19 +16,7 @@ export class UserComponent {
 
   public discordUser!: DiscordUser;
 
-  constructor(private delilahUserService: DelilahUserService, 
-    private discordUserService: DiscordUserService, 
-    private authService: AuthService) {}
-
-  ngOnInit() {
-    this.delilahUserService.getCurrentDelilahUserInfo().subscribe(user => {
-      this.delilahUser = user;
-      console.log(user);
-    });
-    this.discordUserService.getObservableDiscordUser().subscribe(user => {
-      this.discordUser = user;
-    });
-  }
+  constructor(private authService: AuthService) {}
 
   public logout() {
     this.authService.logout();

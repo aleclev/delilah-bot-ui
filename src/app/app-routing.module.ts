@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { loginGuard } from 'src/app/guards/login.guard';
-import { LoginComponent } from './user/login/login.component';
+import { loginGuard } from 'src/app/auth/login.guard';
+import { LoginComponent } from './auth/login/login.component';
+import { MatButtonModule } from '@angular/material/button';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
@@ -11,11 +14,6 @@ const routes: Routes = [
     pathMatch: "prefix"
   },
   {
-    path: '**',
-    redirectTo: 'user',
-    canMatch: [loginGuard]
-  },
-  {
     path: 'login',
     pathMatch: 'prefix',
     component: LoginComponent
@@ -23,7 +21,11 @@ const routes: Routes = [
   {
     path: 'home',
     pathMatch: 'full',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    component: HomeComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   },
   {
     path: '**',
@@ -32,7 +34,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+  MatButtonModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

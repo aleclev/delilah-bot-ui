@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "../src/assets/dark-theme.scss";
+
+h1 {
+    @extend .mat-h1;
+}
+
+h2 {
+    @extend .mat-h2;
+}
+
+h3 {
+    @extend .mat-h3;
+}
+
+h4 {
+    @extend .mat-h4;
+}
+
+p {
+    @extend .mat-body;
+}

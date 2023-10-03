@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/user/auth.service';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { DiscordToken } from 'src/app/models/discord/discord-token';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +37,7 @@ export class LoginComponent {
         this.httpClient.get<DiscordToken>(environment.delilah.server.url + '/auth/discordToken?code='+code)
         .subscribe(token => {
           this.appService.saveToken(token.access_token.valueOf(), token.expires_in.valueOf());
-          this.router.navigate(['/user']);
+          this.router.navigate(['/home']);
         },
         err => {
           this.router.navigate(['/home']);

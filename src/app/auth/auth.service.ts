@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Cookie } from 'ng2-cookies';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,18 @@ export class AuthService {
   saveToken(access_token: string, expires_in: number) {
     var expireDate = new Date().getTime() + (1000 * expires_in);
     Cookie.set("access_token", access_token, expireDate);
-    console.log('Obtained Access token');
+  }
+
+  public login(): void {
+    window.location.href = environment.delilah.discord.oauth2Url;
   }
 
   isLoggedIn(): boolean {
     return this.checkCredentials();
+  }
+
+  public getAccessToken(): string {
+    return Cookie.get('access_token');
   }
 
   checkCredentials() {
