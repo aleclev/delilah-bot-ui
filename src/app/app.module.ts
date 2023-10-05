@@ -17,6 +17,9 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import {LayoutModule} from '@angular/cdk/layout';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { MatRippleModule } from '@angular/material/core'
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
     MatSidenavModule,
     MatListModule,
     LayoutModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

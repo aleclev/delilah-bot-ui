@@ -1,0 +1,25 @@
+<div>
+    <mat-form-field class="variable-mat-form-field-50">
+        <mat-label>Filter Entries</mat-label>
+        <input matInput type="text" placeholder="Search by name" #searchQuery>
+    </mat-form-field>
+
+    <h4>Entries:</h4>
+    <div *ngFor="let entry of getFilteredEntries(searchQuery.value);">
+
+        <mat-card class="entry-card">
+            <mat-card-header>
+                <mat-card-title>{{entry.word.word}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{entry.definition.definition}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button color="accent" mat-icon-button (click)="this.deleteEntry(entry)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-card-actions>
+        </mat-card>
+        <br>
+    </div>
+</div>

@@ -5,20 +5,18 @@
           <mat-icon>menu</mat-icon>
       </button>
       
-      <span *ngIf="!isLoggedIn()">DelilahBot</span>
-      <span *ngIf="isLoggedIn()">DelilahBot >> {{discordUser.username}}</span>
+      <span class="title" *ngIf="!isLoggedIn()">DelilahBot</span>
+      <span class="title" *ngIf="isLoggedIn()">DelilahBot >> {{discordUser.username}}</span>
 
       <span class="toolbar-spacer"></span>
-      <button *ngIf="!isLoggedIn()" mat-icon-button (click)="login()">
+      <button matTooltip='Login' *ngIf="!isLoggedIn()" mat-icon-button (click)="login()">
         <mat-icon>login</mat-icon>
       </button>
       
-      <button *ngIf="isLoggedIn()" mat-icon-button (click)="logout()">
+      <button matTooltip='Logout' *ngIf="isLoggedIn()" mat-icon-button (click)="logout()">
         <mat-icon>logout</mat-icon>
       </button>
 
-      <img *ngIf="isLoggedIn()" width="20px" height="20px" src="https://cdn.discordapp.com/avatars/{{discordUser.id}}/{{discordUser.avatar}}.png">
-      
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -34,7 +32,7 @@
         
         <div *ngIf="isLoggedIn()">
           <a mat-list-item [routerLink]="'/user/dictionary'" (click)="sidenav.toggle()"> Dictionary </a>
-          <a mat-list-item [routerLink]="'/user/groupEvent'" (click)="sidenav.toggle()"> Group Events (Delilah LFG) </a>
+          <a mat-list-item [routerLink]="'/user/groupEvent'" (click)="sidenav.toggle()"> Group Events (LFG) </a>
         </div>
   
       </mat-nav-list>

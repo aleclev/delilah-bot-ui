@@ -1,42 +1,47 @@
 
-<div class="content">
+<h1 class="page-title">Group Event (LFG)</h1>
+<p class="page-title"><em>Create an interactive group event post on Sherpa Run</em></p>
+
+<div class="content-with-wrapper">
+    <p>This will create a post in Sherpa Run</p>
+    
     <div>
-        <mat-form-field>
+        <mat-form-field class="form-field">
             <mat-label>Activity</mat-label>
             <mat-select [(value)]="activity">
-                <div *ngFor="let activity of activities">
-                    <mat-option value="{{activity.shortName}}">{{activity.longName}}</mat-option>
-                </div>
+                <mat-option *ngFor="let activity of activities" value="{{activity.shortName}}">{{activity.longName}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
     
     <div>
-        <mat-form-field>
+        <mat-form-field class="form-field">
             <mat-label>Group Size</mat-label>
             <input matInput type="number" placeholder="Group size" #groupSize>
         </mat-form-field>
     </div>
     
     <div>
-        <mat-form-field>
+        <mat-form-field class="form-field">
             <mat-label>Description</mat-label>
             <textarea matInput #description rows="4" cols="50" placeholder="Definition"></textarea>
         </mat-form-field>
     </div>
     
-    <div>
-        <mat-form-field>
+    <div class="start-time-container">
+        <mat-form-field class="form-field">
             <mat-label>Start time (optional)</mat-label>
             <input matInput type="datetime-local" placeholder="start date" #startTime>
         </mat-form-field>
+        <button mat-icon-button matTooltip="Timezone set by browser settings by default" matTooltipPosition='right'><mat-icon>question_mark</mat-icon></button>
     </div>
     
     
-    <button color="accent" mat-raised-button #createButton [disabled]="!enableCreateButton() || groupCreated" (click)="createGroup()">Create Group</button>
+    <button color="accent" mat-raised-button #createButton 
+    [disabled]="!enableCreateButton() || groupCreated"
+    *ngIf="!groupCreated" 
+    (click)="createGroup()">Create Group</button>
     
-    <div *ngIf="groupCreated">
-        <p>Post URL:</p>
-        <a href="{{discordPostUrl}}">{{discordPostUrl}}</a>
-    </div>
+    <button mat-raised-button color="primary" *ngIf="groupCreated" (click)="goToDiscordPost()">Go to Discord</button>
+
 </div>

@@ -1,78 +1,33 @@
-<h2>Dictionary Management</h2>
-
+<h1 class="page-title">Dictionary Management</h1>
+<p class="page-title">Save a word, access it later in Discord!</p>
+<div class="content-with-wrapper">
 
 <mat-accordion>
-    <mat-expansion-panel hideToggle>
+    <mat-expansion-panel class="dictionary-accordion" (opened)="true">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Add
         </mat-panel-title>
     
         </mat-expansion-panel-header>
-            <mat-form-field class="example-full-width">
-                <mat-label>New word</mat-label>
-                <input matInput type="text" #newWord placeholder="Word">
-            </mat-form-field>
-
-
-            <mat-form-field class="example-full-width">
-                <mat-label>New definition</mat-label>
-                <textarea matInput #newDefinition rows="4" cols="50" placeholder="Definition"></textarea>
-            </mat-form-field>
-            <button *ngIf="showAddEntryButton(newWord.value, newDefinition.value)" mat-icon-button (click)="this.addEntry(newWord.value, newDefinition.value)">
-                <mat-icon>add</mat-icon>
-            </button>  
+        
+        <app-create-entry [dictionary]="dictionary"></app-create-entry>
         
     </mat-expansion-panel>
 
-
-
-
-
-
-
-
-    <mat-expansion-panel hideToggle>
+    <mat-expansion-panel class="dictionary-accordion">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Search
+            Search/Delete
           </mat-panel-title>
       
           </mat-expansion-panel-header>
-             
 
+          <app-search-entry [dictionary]="dictionary"></app-search-entry>
 
-          <div>
-            <h3>Edit/Search Current Entries:</h3>
-            <h4>Search:</h4>
-        
-            <mat-form-field class="example-full-width">
-                <mat-label>Entry search</mat-label>
-                <input matInput type="text" placeholder="Search query" (input)="updateFilteredEntries(searchQuery.value)" #searchQuery>
-            </mat-form-field>
-        
-            <h4>Entries:</h4>
-            <div *ngFor="let entry of filteredEntries;">
-        
-                <mat-card class="entry-card">
-                    <mat-card-header>
-                        <mat-card-title>{{entry.word.word}}</mat-card-title>
-                    </mat-card-header>
-                    <mat-card-content>
-                        <p>{{entry.definition.definition}}</p>
-                    </mat-card-content>
-                    <mat-card-actions>
-                        <button mat-icon-button (click)="this.deleteEntry(entry)">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </mat-card-actions>
-                    </mat-card>
-            </div>
-        </div>
-
-
-          
       </mat-expansion-panel>
 
-
   </mat-accordion>
+
+</div>
+

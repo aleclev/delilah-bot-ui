@@ -76,8 +76,8 @@ export class CreateGroupEventComponent {
         let temp = res.headers.get('Location');
         this.discordPostUrl = temp;;
         this.groupCreated = true;
-        this.matSnackBar.open("Post Created! Reload the page to create new post", undefined, {
-          duration: 5000
+        this.matSnackBar.open("Post Created! You can now view it on Sherpa Run.", undefined, {
+          duration: 15000
         })
       }
     );
@@ -86,6 +86,11 @@ export class CreateGroupEventComponent {
 
   public enableCreateButton() {
     return this.activityValid() && this.groupSizeValid() && this.descriptionValid();
+  }
+
+  public goToDiscordPost(): void {
+
+    window.location.href = this.discordPostUrl.replace('https', 'discord');
   }
 
 }
