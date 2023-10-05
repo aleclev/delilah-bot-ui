@@ -1,0 +1,25 @@
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.sticky-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    height: 60px;
+}
+  
+.sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+}
+
+.title {
+    @media screen and (max-width: 600px) {
+        display: none;
+    }
+}
+  
+  

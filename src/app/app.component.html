@@ -1,2 +1,13 @@
 
-<router-outlet></router-outlet>
+<div *ngIf="!loading">
+    <app-toolbar></app-toolbar>
+
+    <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="loading" class="spinner-container">
+    <div class="spinner">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>
+

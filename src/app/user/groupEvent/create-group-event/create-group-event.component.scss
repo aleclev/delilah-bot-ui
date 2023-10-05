@@ -1,0 +1,14 @@
+@import "src/assets/layout";
+
+.form-field {
+    width: 50vw;
+    max-width: 500px;
+    flex: 1 1 auto;
+    @media  screen and (max-width: 600px) {
+        width: 100%;
+    }
+}
+
+.start-time-container {
+    display:flex;
+}

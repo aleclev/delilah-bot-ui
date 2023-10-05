@@ -1,0 +1,31 @@
+@import "/src/assets/dark-theme.scss";
+
+.content-with-wrapper {
+    padding: 2vh 3vw;
+    background-color: $dark-bg-lighter-5;
+    margin: 2vh 10vw;
+    border-radius: 15px;
+
+    @media  screen and (max-width: 600px) {
+        padding: 3vh 3vw;
+        margin: 1vh 4vw;
+    }
+}
+
+.variable-mat-form-field-50 {
+    
+    width: 50vw;
+    
+    @media  screen and (max-width: 600px) {
+        width: 100%;
+    }
+}
+
+.page-title {
+    margin: 2vh 10vw;
+
+    @media  screen and (max-width: 600px) {
+        padding: 3vh 3vw;
+        margin: 1vh 4vw;
+    }
+}

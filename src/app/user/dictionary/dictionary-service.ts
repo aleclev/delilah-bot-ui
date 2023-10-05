@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Dictionary } from 'src/app/models/delilah/dictionary';
 import { DictionaryEntry } from 'src/app/models/delilah/dictionary-entry';
 import { environment } from 'src/environments/environment';
 
@@ -10,22 +12,21 @@ export class DictionaryService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public deleteEntry(accessToken: string, entry: DictionaryEntry): void {
+  public deleteEntryObservable(accessToken: string, entry: DictionaryEntry): Observable<any> {
 
-    this.httpClient.delete(environment.delilah.server.url + "/dictionary/entry", {
+    return this.httpClient.delete(environment.delilah.server.url + "/dictionary/entry", {
       headers: {
         'access_token': accessToken
       },
       params: {
         'word': entry.word.word
       }
-    })
-    .subscribe();
+    });
   }
 
-  public addEntry(accessToken: string, entry: DictionaryEntry) {
+  public addEntryObservable(accessToken: string, entry: DictionaryEntry): Observable<any> {
 
-    this.httpClient.post(environment.delilah.server.url + '/dictionary/entry',
+    return this.httpClient.post(environment.delilah.server.url + '/dictionary/entry',
     {
       word: entry.word.word,
       definition: entry.definition.definition
@@ -34,6 +35,13 @@ export class DictionaryService {
       headers: {
         'access_token': accessToken
       }
-    }).subscribe();
+    });
+  }
+
+  public wordExists(word: string, dictionary: Dictionary): boolean {
+
+    if (dictionary.entries.find(d => d.word.word == word)) return true;
+
+    return false;
   }
 }
