@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "../src/assets/dark-theme.scss";
-@import "../src/assets/layout.scss";
+@import "./assets/dark-theme.scss";
+@import "./assets/layout.scss";
 
 h1 {
     @extend .mat-h1;
