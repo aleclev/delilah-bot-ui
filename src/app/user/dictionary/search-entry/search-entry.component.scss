@@ -1,5 +1,6 @@
 @import "/src/assets/variables";
 
 .entry-card {
-    background-color: $dark-bg-lighter-20;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }

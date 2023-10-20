@@ -12,6 +12,8 @@
 // Fonts
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone';
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@300;400;500&display=swap');
+
+@import "variables";
      
 $fontConfig: (
   display-4: mat.define-typography-level(112px, 112px, 300, 'Courier Prime', -0.0134em),
@@ -30,14 +32,6 @@ $fontConfig: (
 );
 
 // Foreground Elements
-
-// Light Theme Text
-$dark-text: #000000;
-$dark-primary-text: rgba($dark-text, 0.87);
-$dark-accent-text: rgba($dark-primary-text, 0.54);
-$dark-disabled-text: rgba($dark-primary-text, 0.38);
-$dark-dividers: rgba($dark-primary-text, 0.12);
-$dark-focused: rgba($dark-primary-text, 0.12);
 
 $mat-light-theme-foreground: (
   base:              black,
@@ -58,13 +52,6 @@ $mat-light-theme-foreground: (
   slider-off-active: $dark-disabled-text,
 );
 
-// Dark Theme text
-$light-text: #d7fffa;
-$light-primary-text: $light-text;
-$light-accent-text: rgba($light-primary-text, 0.7);
-$light-disabled-text: rgba($light-primary-text, 0.5);
-$light-dividers: rgba($light-primary-text, 0.12);
-$light-focused: rgba($light-primary-text, 0.12);
 
 $mat-dark-theme-foreground: (
   base:              $light-text,
@@ -85,18 +72,6 @@ $mat-dark-theme-foreground: (
   slider-off-active: rgba($light-text, 0.3),
 );
 
-// Background config
-// Light bg
-$light-background:    #fafafa;
-$light-bg-darker-5:   darken($light-background, 5%);
-$light-bg-darker-10:  darken($light-background, 10%);
-$light-bg-darker-20:  darken($light-background, 20%);
-$light-bg-darker-30:  darken($light-background, 30%);
-$light-bg-lighter-5:  lighten($light-background, 5%);
-$dark-bg-tooltip:     lighten(#231d2d, 20%);
-$dark-bg-alpha-4:     rgba(#231d2d, 0.04);
-$dark-bg-alpha-12:    rgba(#231d2d, 0.12);
-
 $mat-light-theme-background: (
   background:               $light-background,
   status-bar:               $light-bg-darker-20,
@@ -114,9 +89,6 @@ $mat-light-theme-background: (
   unselected-chip:          $light-bg-darker-10,
   disabled-list-option:     $light-bg-darker-10,
 );
-
-// Dark bg
-@import "variables";
 
 // Background palette for dark themes.
 $mat-dark-theme-background: (
@@ -224,10 +196,37 @@ $altTheme: (
 );
 
 // Theme Init
-@include mat.all-component-themes($theme);
+.theme-dark {
+  @include mat.all-component-themes($theme);
 
-.theme-alternate {
+  .bg-level-5 {
+    background-color: $dark-bg-lighter-5;
+  }
+
+  .bg-level-10 {
+    background-color: $dark-bg-lighter-10;
+  }
+
+  .bg-level-20 {
+    background-color: $dark-bg-lighter-20;
+  }
+}
+
+
+.theme-light {
   @include mat.all-component-themes($altTheme);
+
+  .bg-level-5 {
+    background-color: $light-bg-darker-5;
+  }
+
+  .bg-level-10 {
+    background-color: $light-bg-darker-10;
+  }
+
+  .bg-level-20 {
+    background-color: $light-bg-darker-20;
+  }
 }
 
 // Specific component overrides, pieces that are not in line with the general theming
@@ -237,7 +236,7 @@ $altTheme: (
   padding: 0 1.15em;
   margin: 0 .65em;
   min-width: 3em;
-  line-height: 36.4px
+  line-height: 36.4px;
 }
 
 .mat-standard-chip {

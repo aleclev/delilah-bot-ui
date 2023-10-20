@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "./assets/dark-theme.scss";
+@import "./assets/theme.scss";
 @import "./assets/layout.scss";
 
 h1 {
@@ -23,4 +23,7 @@ p {
     @extend .mat-body;
 }
 
-$mobile-width-threshold: 600px;
+a {
+    @extend .mat-body-strong;
+    color: #ff647c;
+}

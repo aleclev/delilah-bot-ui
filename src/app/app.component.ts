@@ -5,6 +5,7 @@ import { DelilahUserService } from './user/delilahUser/delilah-user.service';
 import { DiscordUserService } from './user/discordUser/discord-user.service';
 import { AuthService } from './auth/auth.service';
 import { forkJoin } from 'rxjs';
+import { ThemeService } from './theme/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,8 @@ export class AppComponent {
 
   constructor(private authService: AuthService,
     private delilahUserService: DelilahUserService, 
-    private discordUserService: DiscordUserService) {}
+    private discordUserService: DiscordUserService,
+    private themeService: ThemeService) {}
 
   async ngOnInit() {
 
@@ -34,5 +36,8 @@ export class AppComponent {
     this.loading = false;
   }
 
+  public displayLightTheme(): boolean {
+    return this.themeService.displayLightTheme();
+  }
 
 }
