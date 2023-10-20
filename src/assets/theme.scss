@@ -14,6 +14,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@300;400;500&display=swap');
 
 @import "variables";
+
+@include mat.core();
+@include mat.ripple();
      
 $fontConfig: (
   display-4: mat.define-typography-level(112px, 112px, 300, 'Courier Prime', -0.0134em),
@@ -197,7 +200,6 @@ $altTheme: (
 
 // Theme Init
 .theme-dark {
-  @include mat.all-component-themes($theme);
 
   .bg-level-5 {
     background-color: $dark-bg-lighter-5;
@@ -214,7 +216,6 @@ $altTheme: (
 
 
 .theme-light {
-  @include mat.all-component-themes($altTheme);
 
   .bg-level-5 {
     background-color: $light-bg-darker-5;
@@ -253,14 +254,12 @@ $altTheme: (
 }
 
 
-// DO NOT TOUCH ANYTHING AFTER
+:root.light {
+  @include mat.all-component-themes($altTheme);
+}
 
-@include mat.core();
+:root.dark {
+  @include mat.all-component-themes($theme);
+}
 
-@include mat.ripple();
-
-
-//@include mat.mat-core();
-//@include mat.mat-typography-hierarchy($fontConfig);
-@include mat.all-component-themes($theme);
 @include mat.all-component-typographies($fontConfig);
