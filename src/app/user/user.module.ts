@@ -11,12 +11,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion'
 import { MatSelectModule } from '@angular/material/select';
-import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import { CreateEntryComponent } from './dictionary/create-entry/create-entry.component';
 import { SearchEntryComponent } from './dictionary/search-entry/search-entry.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatRippleModule } from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NgxMatDatetimePickerModule, NgxMatNativeDateModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 
 const routes: Routes = [
   
@@ -57,7 +59,12 @@ const routes: Routes = [
     MatSnackBarModule,
     MatTooltipModule,
     MatRippleModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMatDatetimePickerModule, 
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule
   ],
   bootstrap: [
     UserComponent

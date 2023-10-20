@@ -2,11 +2,11 @@
 
 .content-with-wrapper {
     padding: 2vh 3vw;
-    background-color: $dark-bg-lighter-5;
+    @extend .bg-level-5;
     margin: 2vh 10vw;
     border-radius: 15px;
 
-    @media  screen and (max-width: 600px) {
+    @media  screen and (max-width: $mobile-width-threshold) {
         padding: 3vh 3vw;
         margin: 1vh 4vw;
     }
@@ -16,7 +16,7 @@
     
     width: 50vw;
     
-    @media  screen and (max-width: 600px) {
+    @media  screen and (max-width: $mobile-width-threshold) {
         width: 100%;
     }
 }
@@ -24,7 +24,7 @@
 .page-title {
     margin: 2vh 10vw;
 
-    @media  screen and (max-width: 600px) {
+    @media  screen and (max-width: $mobile-width-threshold) {
         padding: 3vh 3vw;
         margin: 1vh 4vw;
     }

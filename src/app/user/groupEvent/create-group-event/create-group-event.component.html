@@ -24,14 +24,16 @@
     <div>
         <mat-form-field class="form-field">
             <mat-label>Description</mat-label>
-            <textarea matInput #description rows="4" cols="50" placeholder="Definition"></textarea>
+            <textarea matInput #description rows="4" cols="50" placeholder="Description"></textarea>
         </mat-form-field>
     </div>
     
     <div class="start-time-container">
         <mat-form-field class="form-field">
             <mat-label>Start time (optional)</mat-label>
-            <input matInput type="datetime-local" placeholder="start date" #startTime>
+            <input matInput #startTime [ngxMatDatetimePicker]="picker" placeholder="Choose a start time">
+            <ngx-mat-datepicker-toggle matSuffix [for]="picker"></ngx-mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #picker [showSeconds]="false" [enableMeridian]="true" [stepMinute]="30"></ngx-mat-datetime-picker>
         </mat-form-field>
         <button mat-icon-button matTooltip="Timezone set by browser settings by default" matTooltipPosition='right'><mat-icon>question_mark</mat-icon></button>
     </div>

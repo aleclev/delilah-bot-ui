@@ -16,8 +16,6 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild('mainBlock') mainBlock!: ElementRef;
   @ViewChild('progressBar') progressBar!: ElementRef;
 
-  @ViewChild('sidenav') sidenav!: ElementRef;
-
   discordUser!: DiscordUser;
 
   constructor(private authService: AuthService, private discordUserService: DiscordUserService) {
@@ -40,7 +38,7 @@ export class HomeComponent implements AfterViewInit {
   }
 
   private async playEntryAnimation(): Promise<void> {
-    let message = 'delilah_dashboard_0.2.0'.split('');
+    let message = 'delilah_dashboard_0.2.1'.split('');
     let progressBarMessage = ('[' + '.'.repeat(40) + ']').split('');
     let bar = '*';
     for (let letter in message) {
