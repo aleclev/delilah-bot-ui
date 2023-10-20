@@ -253,12 +253,8 @@ $altTheme: (
 }
 
 
-// DO NOT TOUCH ANYTHING AFTER
-
 @include mat.core();
-
 @include mat.ripple();
-
 
 //@include mat.mat-core();
 //@include mat.mat-typography-hierarchy($fontConfig);
