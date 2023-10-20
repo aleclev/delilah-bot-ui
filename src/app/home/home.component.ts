@@ -16,8 +16,6 @@ export class HomeComponent implements AfterViewInit {
   @ViewChild('mainBlock') mainBlock!: ElementRef;
   @ViewChild('progressBar') progressBar!: ElementRef;
 
-  @ViewChild('sidenav') sidenav!: ElementRef;
-
   discordUser!: DiscordUser;
 
   constructor(private authService: AuthService, private discordUserService: DiscordUserService) {
