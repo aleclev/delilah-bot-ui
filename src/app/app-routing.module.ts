@@ -5,12 +5,19 @@ import { LoginComponent } from './auth/login/login.component';
 import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { adminGuard } from './auth/admin.guard';
 
 const routes: Routes = [
   {
     path: 'user',
     loadChildren: () => import('./user/user.module').then(m => m.UserModule),
     canMatch: [loginGuard],
+    pathMatch: "prefix"
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canMatch: [adminGuard],
     pathMatch: "prefix"
   },
   {

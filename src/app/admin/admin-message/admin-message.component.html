@@ -1,0 +1,25 @@
+
+<h1 class="page-title">Post messages as Delilah</h1>
+<div class="content-with-wrapper">
+
+    <div>
+        <mat-form-field class="form-field">
+            <mat-label>Channel</mat-label>
+            <mat-select #channel>
+                <mat-option *ngFor="let channel of getChannels()" value="{{channel.id}}">{{channel.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    
+    <div>
+        <mat-form-field class="variable-mat-form-field-50">
+            <mat-label>Message Content</mat-label>
+            <textarea matInput #messageContent rows="4" cols="50" placeholder="Content"></textarea>
+        </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" [disabled]="!channel.value && !messageContent.value" (click)="createMessage(channel.value, messageContent.value)">
+        Create Post
+    </button>
+
+</div>
