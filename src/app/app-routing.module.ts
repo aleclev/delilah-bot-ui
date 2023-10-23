@@ -30,6 +30,11 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  {
     path: 'about',
     component: AboutComponent
   },
