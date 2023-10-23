@@ -8,7 +8,6 @@ import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -19,13 +18,13 @@ import {LayoutModule} from '@angular/cdk/layout';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatRippleModule } from '@angular/material/core'
 import { MatSelectModule } from '@angular/material/select';
-import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ToolbarComponent,
     AboutComponent,
   ],
   imports: [
@@ -46,7 +45,8 @@ import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
     MatProgressSpinnerModule,
     MatRippleModule,
     MatSelectModule,
-    MatTooltipModule
+    MatTooltipModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

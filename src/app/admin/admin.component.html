@@ -1,0 +1,9 @@
+
+<div *ngIf="isAdmin()">
+    <router-outlet></router-outlet>
+</div>
+
+<div *ngIf="!isAdmin()">
+    <app-forbidden></app-forbidden>
+</div>
+
