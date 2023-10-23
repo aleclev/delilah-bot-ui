@@ -3,23 +3,47 @@
 <div class="content-with-wrapper">
 
     <div>
-        <mat-form-field class="form-field">
+        <mat-form-field>
             <mat-label>Channel</mat-label>
             <mat-select #channel>
                 <mat-option *ngFor="let channel of getChannels()" value="{{channel.id}}">{{channel.name}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>
+
+    <div>
+        <mat-form-field class="inline-field">
+            <mat-label>MessageID (optional)</mat-label>
+            <input matInput #messageId>
+        </mat-form-field>
+
+        <button class="inline-field" mat-raised-button color="accent"
+        [disabled]="!messageId.value || !channel.value"
+        (click)="loadMessageContent(channel.value, messageId.value)">Load message content</button>
+    </div>
     
     <div>
-        <mat-form-field class="variable-mat-form-field-50">
+        <mat-form-field class="message-content-textarea">
             <mat-label>Message Content</mat-label>
-            <textarea matInput #messageContent rows="4" cols="50" placeholder="Content"></textarea>
+            <textarea  
+            id="messageContentInput" matInput 
+            #messageContent rows="20" placeholder="Content"></textarea>
         </mat-form-field>
     </div>
 
-    <button mat-raised-button color="primary" [disabled]="!channel.value && !messageContent.value" (click)="createMessage(channel.value, messageContent.value)">
-        Create Post
-    </button>
+    <div>
+        <button class="inline-field" 
+        mat-raised-button color="primary" 
+        [disabled]="!channel.value || !messageContent.value" 
+        (click)="createMessage(channel.value, messageContent.value);">
+            New Message
+        </button>
 
+        <button class="inline-field" 
+        mat-raised-button color="accent" 
+        [disabled]="!channel.value || !messageContent.value || !messageId.value"
+        (click)="updateMessage(channel.value, messageId.value, messageContent.value)">
+            Update Message
+        </button>
+    </div>
 </div>

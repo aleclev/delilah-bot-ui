@@ -35,6 +35,10 @@ export class ToolbarComponent {
     return this.authService.isLoggedIn();
   }
 
+  public isAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
+
   public switchTheme(): void {
     this.themeService.switchTheme();
   }
