@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Cookie } from 'ng2-cookies';
 import { environment } from 'src/environments/environment';
+import { DelilahUserService } from '../user/delilahUser/delilah-user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private userService: DelilahUserService) { }
 
   saveToken(access_token: string, expires_in: number) {
     var expireDate = new Date().getTime() + (1000 * expires_in);
@@ -33,5 +34,9 @@ export class AuthService {
   logout() {
     Cookie.delete('access_token');
     window.location.reload();
+  }
+
+  public isAdmin(): boolean {
+    return this.userService.getDelilahUser().isAdmin();
   }
 }

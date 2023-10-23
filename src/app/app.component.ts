@@ -26,12 +26,13 @@ export class AppComponent {
 
   async ngOnInit() {
 
-    if (this.authService.isLoggedIn()) {
+     if (this.authService.isLoggedIn()) {
 
-      await Promise.all([
-        this.delilahUserService.reloadDelilahUser(),
-        this.discordUserService.reloadDiscordUser()]);
-    }
+       await Promise.all([
+         this.delilahUserService.reloadDelilahUser(),
+         this.discordUserService.reloadDiscordUser()
+        ]);
+     }
 
     this.loading = false;
   }
@@ -39,5 +40,4 @@ export class AppComponent {
   public displayLightTheme(): boolean {
     return this.themeService.displayLightTheme();
   }
-
 }
