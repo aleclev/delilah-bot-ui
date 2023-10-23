@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cookie } from 'ng2-cookies/cookie';
-import { Observable, firstValueFrom, from } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { DelilahUser } from '../../models/delilah/delilah-user';
 import { environment } from 'src/environments/environment';
 import { DelilahUserDto } from './delilah-user-dto';
@@ -22,19 +22,6 @@ export class DelilahUserService {
   constructor(private http_client: HttpClient) { }
 
   public getDelilahUser(): DelilahUser {
-    return this.delilahUser;
-  }
-
-  private async promiseDelilahUser(): Promise<DelilahUser> {
-    if (this.delilahUser != undefined) {
-      console.log(this.delilahUser)
-      return this.delilahUser;
-    }
-
-
-    this.getCurrentDelilahUserObservable().subscribe((r) => this.delilahUser = this.assembleUser(r));
-    //this.delilahUser = this.assembleUser(await firstValueFrom(this.getCurrentDelilahUserObservable()))
-
     return this.delilahUser;
   }
 
