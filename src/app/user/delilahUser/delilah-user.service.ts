@@ -47,7 +47,14 @@ export class DelilahUserService {
         )
       );
 
-    let permissionProfile = new PermissionProfile(dto.permissionProfile.roles.map(r => r as Role))
+      let permissionProfile: PermissionProfile;
+
+    if (dto.permissionProfile) {
+      permissionProfile = new PermissionProfile(dto.permissionProfile.roles.map(r => r as Role));
+    } 
+    else {
+      permissionProfile = new PermissionProfile(new Array);
+    }
 
     return new DelilahUser(dto.discordId, dto.userId, rootDictionary, permissionProfile);
   }
