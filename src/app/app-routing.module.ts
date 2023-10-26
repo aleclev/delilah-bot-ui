@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { GettingStartedComponent } from './tutorial/getting-started/getting-started.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    canMatch: [loginGuard],
     pathMatch: "prefix"
   },
   {
@@ -37,6 +39,10 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'getting-started',
+    component: GettingStartedComponent
   },
   {
     path: '**',

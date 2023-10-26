@@ -13,6 +13,7 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone';
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@300;400;500&display=swap');
 
+@import "colors";
 @import "variables";
 
 @include mat.core();
@@ -116,18 +117,18 @@ $mat-dark-theme-background: (
 
 body {
   margin: 0;
-  --primary-color: #53daff;
-  --primary-lighter-color: #cbf4ff;
-  --primary-darker-color: #39cbff;
+  --primary-color: $main-primary;
+  --primary-lighter-color: $main-lighter;
+  --primary-darker-color: $main-darker;
   --text-primary-color: #{$dark-primary-text};
   --text-primary-lighter-color: #{$dark-primary-text};
   --text-primary-darker-color: #{$dark-primary-text};
 }   
 $mat-primary: (
-  main: #53daff,
-  lighter: #cbf4ff,
-  darker: #39cbff,
-  200: #53daff, // For slide toggle,
+  main: $main-primary,
+  lighter: $main-lighter,
+  darker: $main-darker,
+  200: $main-primary, // For slide toggle,
   contrast : (
     main: $dark-primary-text,
     lighter: $dark-primary-text,
@@ -138,18 +139,18 @@ $theme-primary: mat.define-palette($mat-primary, main, lighter, darker);
 
 
 body {
-  --accent-color: #ff8199;
-  --accent-lighter-color: #ffd9e0;
-  --accent-darker-color: #ff647c;
+  --accent-color: $accent-primary;
+  --accent-lighter-color: $accent-lighter;
+  --accent-darker-color: $accent-darker;
   --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$dark-primary-text};
 }   
 $mat-accent: (
-  main: #ff8199,
-  lighter: #ffd9e0,
-  darker: #ff647c,
-  200: #ff8199, // For slide toggle,
+  main: $accent-primary,
+  lighter: $accent-lighter,
+  darker: $accent-darker,
+  200: $accent-primary, // For slide toggle,
   contrast : (
     main: $dark-primary-text,
     lighter: $dark-primary-text,
@@ -198,8 +199,25 @@ $altTheme: (
   background: $mat-light-theme-background,
 );
 
-// Theme Init
-.theme-dark {
+:root.light {
+  @include mat.all-component-themes($altTheme);
+
+  .bg-level-5 {
+    background-color: $light-bg-darker-5;
+  }
+
+  .bg-level-10 {
+    background-color: $light-bg-darker-10;
+  }
+
+  .bg-level-20 {
+    background-color: $light-bg-darker-20;
+  }
+  
+}
+
+:root.dark {
+  @include mat.all-component-themes($theme);
 
   .bg-level-5 {
     background-color: $dark-bg-lighter-5;
@@ -214,23 +232,7 @@ $altTheme: (
   }
 }
 
-
-.theme-light {
-
-  .bg-level-5 {
-    background-color: $light-bg-darker-5;
-  }
-
-  .bg-level-10 {
-    background-color: $light-bg-darker-10;
-  }
-
-  .bg-level-20 {
-    background-color: $light-bg-darker-20;
-  }
-}
-
-// Specific component overrides, pieces that are not in line with the general theming
+@include mat.all-component-typographies($fontConfig);
 
 // Handle buttons appropriately, with respect to line-height
 .mat-raised-button, .mat-stroked-button, .mat-flat-button {
@@ -252,14 +254,3 @@ $altTheme: (
     font-family: 'Courier Prime';
   }
 }
-
-
-:root.light {
-  @include mat.all-component-themes($altTheme);
-}
-
-:root.dark {
-  @include mat.all-component-themes($theme);
-}
-
-@include mat.all-component-typographies($fontConfig);

@@ -5,10 +5,12 @@
 
 h1 {
     @extend .mat-h1;
+    color: $accent-primary;
 }
 
 h2 {
     @extend .mat-h2;
+    color: $accent-primary;
 }
 
 h3 {
@@ -25,5 +27,21 @@ p {
 
 a {
     @extend .mat-body-strong;
-    color: #ff647c;
+    color: $accent-primary;
+}
+
+img {
+    height: auto;
+    width: auto;
+    max-width: fit-content;
+}
+
+.wrapper img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+strong, em {
+    color: $accent-primary;
 }

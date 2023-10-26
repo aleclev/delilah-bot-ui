@@ -1,0 +1,80 @@
+<h1 class="page-title">Getting started with Delilah</h1>
+<p class="page-title">Learn about Delilah and how to use various features.</p>
+
+<div class="content-with-wrapper">
+
+  <h2>Features of DelilahBot:</h2>
+
+  <mat-accordion>
+      <mat-expansion-panel class="bg-level-10">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+              Group Events (LFG)
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p>Allows users to create interactive group event posts:</p>
+        <img src="assets/tutorial/group-event/GroupEventJoinLeave.gif">
+        <br><br><br>
+        <p>All Sherpa Run users can use the <strong>Join</strong> and <strong>Leave</strong> buttons.</p>
+
+        <p>Group owners have access to a few more options:</p>
+        <p><strong>Summon Group</strong>: Sends a private message to all members of your group.</p>
+        <p><strong>Alert</strong>: Sends a private message to all users who are subscribed to your activity (see notification module).</p>
+        <p><strong>Delete</strong>: Allows the group owner to delete the group.</p>
+        <p>You can create Event Groups <a [routerLink]="'/user/groupEvent'">here</a>, or by using the '<strong>/lfg create</strong>' command.</p>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <mat-expansion-panel class="bg-level-10">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Notification
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <p>Allows users to manage which Group Event posts they want to be notified for. You can also choose to block notifications from certain users.</p>
+      <p>Note: You will not receive notifications if you are offline or have do not disturb selected in Discord.</p>
+
+      <img src="assets/tutorial/notification/NotificationPM.jpeg">
+  
+  </mat-expansion-panel> 
+
+  <mat-expansion-panel class="bg-level-10">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Dictionary (Word)
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <p>Allows users to create Word/Definition pairs that can be retrieved later. This is useful if you need to access information frequently. For instance, sherpas use this to display learning aid for raids.</p>
+    <img src="assets/tutorial/dictionary/DictionaryAddGet.gif">
+
+  </mat-expansion-panel> 
+
+    <p>You may have heard of Discord bots. These are programs that users can interact with through the Discord app. Typically, bots respond to <a href="https://support.discord.com/hc/en-us/articles/1500000368501-Slash-Commands-FAQ">slash commands</a> to do various things. Some bots, like Delilah, include a web interface for better accessibility.</p>
+
+    <h2>1st step - Registering</h2>
+    <p>For many Delilah features, a user profile must be registered.</p>
+    <p>This can be done by logging into this website, or by executing the '<strong>/register discord</strong>' slash command.</p>
+    <p>To use slash commands, please go to Sherpa Run and visit the #commands channel. From there, type '/' to see all commands. To execute the command, click on it and press enter.</p>
+    <div>
+        <img src="assets/tutorial/RegisterSlashCommand.gif">    
+    </div>
+    <br><br><br>
+
+    <h2>2nd step - Understand slash commands</h2>
+    <p>Slash commands have multiple parts:</p>
+    <img src="assets/tutorial/SlashCommandAnatomy.jpeg">
+
+
+    <p>1: <strong>Name.</strong> Commands can be filtered by their name.</p>
+    <p>2: <strong>Description.</strong> A brief description of what the command does. (When focusing an argument, this will be the argument's description instead)</p>
+    <p>3: <strong>Arguments.</strong> These are values used to execute some commands. Arguments can be required or optional. All required arguments must be provided for the command to be executed.</p>
+
+    <p>Once you've selected a command and entered its arguments, press enter to execute it.</p>
+
+    <h2>3rd - Explore</h2>
+    <p>This should give you the basic knowledge you need to interact effectively with Delilah's functionalities. Now you can log in and explore this website or consult the full list of slash commands on Discord.</p>
+    <p>If you ever experience issues with Delilah, or if you have any questions, please feel free to reach out to me on Discord @aleclev.</p>
+</div>

@@ -5,23 +5,43 @@
     <p>DelilahBot is a multipurpose Discord bot made for <a href="discord://discord.gg/sherparun">the Sherpa Run Discord Server</a>. This website allows you to interact with Delilah's functionalities with the convenience of a graphical user interface.</p>
     <p>This project is open source, you can find the source code <a href="https://github.com/aleclev/delilah-bot-ui">here</a>.</p>
 
-    <h2>Can Delilah see my login info?</h2>
-    <p>This application uses Discord's oauth2 authentication scheme. This means login credentials are never made accessible. Instead, Discord sends an authorization code that can be used to access basic info about your account as allowed by Discord's <a href="https://discord.com/developers/docs/resources/user#user-object">'identify' scope.</a></p>
-    <br>
-    <p>For illustrative purpose, let's imagine 3 people, you (Bob the user), Delilah (this website) and Discord (the identity provider). You go to Delilah and ask: "Hi, my name is Bob, may I log in to your website?". Delilah turns to you and says: "You have no token so I don't know who if you're really Bob.", she points to Discord: "Please go talk to Discord over there to get a token that proves me you are indeed Bob. Until then, you may not log in."</p>
-    <br>
-    <p>So you go to Discord and ask for a token, you say: "Hi, Delilah is asking me to prove I am indeed Bob, could you give me a token that she can use to identify me?"</p>
-    <br>
-    <p>Discord replies: "Sure thing, whisper to me your username and password, that way I know you're really Bob." You oblige and give Discord the info he needs. He leaves brifely and comes back: "Yes, your username and password indeed correspond to Bob's account, so you must be Bob." He hands you a token: "Give this token to Delilah to prove you are indeed Bob."</p>
-    <br>
-    <p>You return to Delilah and hand her your token: "Hi again Delilah, Discord gave me this token to prove I am Bob, here you go." She looks at the token and tells you to wait there.</p>
-    <br>
-    <p>Then, Delilah goes over to Discord: "Hi Discord, I have this token, can you tell me who it belongs to?". Discord examines the token: "Ah yes, I remember giving this token to Bob earlier, I'm 100% sure it belongs to Bob."</p>
-    <br>
-    <p>Delilah thanks Discord and returns to you: "Discord just assured me that you are indeed Bob, as long as you have your token, I will let you access the data that Bob is authorized to access."</p>
-    <br>
-    <p>You have now successfully logged in to Delilah. Your Discord account credentials were only ever seen by Discord.</p>
+    <h2>Quick Start</h2>
+    <p>If you're unfamiliar with Discord bots or Delilah's features, <a [routerLink]="'/getting-started'">start here!</a></p>
 
-    <h2>What kind of data does Delilah save?</h2>
-    <p>Delilah saves the basic information used by the various features. Delilah doesn't save or use any data about your activity on the website.</p>
+    <h2>FAQ</h2>
+    <mat-accordion>
+        <mat-expansion-panel class="bg-level-10">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Can Delilah see my login info?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+            <p>No. It also doesn't need to, here's why: This application uses Discord's oauth2 authentication scheme. This means login credentials are never made accessible. Instead, Discord sends an authorization code that can be used to access basic info about your account as allowed by Discord's <a href="https://discord.com/developers/docs/resources/user#user-object">'identify' scope.</a></p>
+            <br>
+            <p>For illustrative purpose, let's imagine 3 people, you (Bob the user), Delilah (this website) and Discord (the identity provider). You go to Delilah and ask: "Hi, my name is Bob, may I log in to your website?". Delilah turns to you and says: "You have no token so I don't know who if you're really Bob.", she points to Discord: "Please go talk to Discord over there to get a token that proves me you are indeed Bob. Until then, you may not log in."</p>
+            <br>
+            <p>So you go to Discord and ask for a token, you say: "Hi, Delilah is asking me to prove I am indeed Bob, could you give me a token that she can use to identify me?"</p>
+            <br>
+            <p>Discord replies: "Sure thing, whisper to me your username and password, that way I know you're really Bob." You oblige and give Discord the info he needs. He leaves brifely and comes back: "Yes, your username and password indeed correspond to Bob's account, so you must be Bob." He hands you a token: "Give this token to Delilah to prove you are indeed Bob."</p>
+            <br>
+            <p>You return to Delilah and hand her your token: "Hi again Delilah, Discord gave me this token to prove I am Bob, here you go." She looks at the token and tells you to wait there.</p>
+            <br>
+            <p>Then, Delilah goes over to Discord: "Hi Discord, I have this token, can you tell me who it belongs to?". Discord examines the token: "Ah yes, I remember giving this token to Bob earlier, I'm 100% sure it belongs to Bob."</p>
+            <br>
+            <p>Delilah thanks Discord and returns to you: "Discord just assured me that you are indeed Bob, as long as you have your token, I will let you access the data that Bob is authorized to access."</p>
+            <br>
+            <p>You have now successfully logged in to Delilah. Your Discord account credentials were only ever seen by Discord.</p>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+      <mat-expansion-panel class="bg-level-10">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            What kind of data does Delilah save?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <p>Delilah saves the basic information used by the various features. Delilah doesn't save or use any data about your activity on the website.</p>
+    
+    </mat-expansion-panel> 
 </div>

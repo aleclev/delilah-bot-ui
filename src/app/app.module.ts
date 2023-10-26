@@ -20,12 +20,15 @@ import { MatRippleModule } from '@angular/material/core'
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SharedModule } from './shared/shared.module';
+import { GettingStartedComponent } from './tutorial/getting-started/getting-started.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
+    GettingStartedComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { SharedModule } from './shared/shared.module';
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
+    MatExpansionModule,
     LayoutModule,
     MatProgressSpinnerModule,
     MatRippleModule,

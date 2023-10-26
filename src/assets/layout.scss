@@ -3,7 +3,7 @@
 .content-with-wrapper {
     padding: 2vh 3vw;
     @extend .bg-level-5;
-    margin: 2vh 10vw;
+    margin: 2vh 10vw 10vh;
     border-radius: 15px;
 
     @media  screen and (max-width: $mobile-width-threshold) {
